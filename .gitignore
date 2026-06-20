@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+.ipynb_checkpoints/
+
+uploads/
+audio/
+
+*.mp3
+*.wav
+
+.env
