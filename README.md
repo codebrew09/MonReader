@@ -1,7 +1,8 @@
-MonReader
+# **MonReader**
 
-**Project Overview**
+## **Project Overview**
 MonReader is a deep learning project that combines image classification, optical character recognition (OCR), and text-to-speech (TTS) technologies.
+
 
 The project is divided into two major components:
 1. Deep Learning Image Classification using CNN architectures.
@@ -9,8 +10,9 @@ The project is divided into two major components:
 
 ---
 
-**Business Problem**
+## **Business Problem**
 The goal is to build intelligent systems capable of understanding image content and converting textual information into accessible audio output.
+
 
 This project explores:
 - Image classification using convolutional neural networks.
@@ -19,11 +21,12 @@ This project explores:
 
 ---
 
-**Part 1: Deep Learning Image Classification**
-Objective:
+## **Part 1: Deep Learning Image Classification**
+## Objective:
 Develop and compare multiple CNN architectures for image classification.
 
-Models Evaluated:
+
+### Models Evaluated:
 - Custom CNN
 A custom-built convolutional neural network designed as a baseline model.
 
@@ -36,7 +39,7 @@ Lightweight architecture optimized for computational efficiency.
 - EfficientNet
 State-of-the-art architecture balancing model depth, width, and resolution.
 
-Workflow:
+### Workflow:
 ```
 Image Upload
       │
@@ -56,14 +59,14 @@ Audio Generation
   Playback
 ```
 
-Evaluation Metrics:
+### Evaluation Metrics:
 - Accuracy
 - Precision
 - Recall
 - F1 Score
 - Confusion Matrix
 
-Results:
+### Results:
 | Model         | Accuracy |
 |---------------|----------|
 | CNN           | XX%      |
@@ -73,23 +76,23 @@ Results:
 
 ---
 
-**Part 2: OCR-to-Speech Flask Application**
+## **Part 2: OCR-to-Speech Flask Application**
 
-Objective:
+### Objective:
 Convert text embedded in images into spoken audio.
 
-Technologies:
-OCR
+### Technologies:
+#### OCR
 - Qwen Vision Model
 
 
-Text-to-Speech
+### Text-to-Speech
 - Sesame CSM
 
-Web Framework
+### Web Framework
 - Flask
 
-Application Workflow:
+### Application Workflow:
 ```
 Image Upload
       │
@@ -116,7 +119,7 @@ app.py
    └── tts.py
 ```
 
-Running Locally:
+### Running Locally:
 1. Clone Repository
 ```
 git clone https://github.com/codebrew09/MonReader.git
