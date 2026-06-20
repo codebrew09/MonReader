@@ -37,24 +37,24 @@ Lightweight architecture optimized for computational efficiency.
 State-of-the-art architecture balancing model depth, width, and resolution.
 
 Workflow:
-Image Dataset
+```
+Image Upload
       │
       ▼
-Preprocessing
+OCR Extraction
       │
       ▼
-Model Training
-      │
-      ├── Custom CNN
-      ├── ResNet
-      ├── MobileNet
-      └── EfficientNet
+Text Cleaning
       │
       ▼
-Performance Evaluation
+Text-to-Speech
       │
       ▼
-Best Model Selection
+Audio Generation
+      │
+      ▼
+  Playback
+```
 
 Evaluation Metrics:
 - Accuracy
@@ -90,6 +90,7 @@ Web Framework
 - Flask
 
 Application Workflow:
+```
 Image Upload
       │
       ▼
@@ -113,18 +114,29 @@ app.py
    ├── ocr.py
    │
    └── tts.py
+```
 
 Running Locally:
 1. Clone Repository
+```
 git clone https://github.com/codebrew09/MonReader.git
-Install Dependencies
-pip install -r flask_app/requirements.txt
-Start Flask Server
-cd flask_app
+```
 
+2. Install Dependencies
+```
+pip install -r flask_app/requirements.txt
+```
+
+3. Start Flask Server
+```
+cd flask_app
 python app.py
-Open Browser
+```
+
+4. Open Browser
+```
 http://127.0.0.1:5000
+```
 
 ---
 
