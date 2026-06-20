@@ -125,9 +125,12 @@ cd flask_app
 python app.py
 Open Browser
 http://127.0.0.1:5000
+
+---
+
 Future Improvements
-Multi-language OCR
-PDF support
-Faster inference
-Cloud deployment
-User authentication
+- Multi-language OCR
+- PDF support
+- Faster inference
+- Cloud deployment
+- User authentication
