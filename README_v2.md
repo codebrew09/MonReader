@@ -1,4 +1,4 @@
-# 📖 MonReader: Image-to-Text Generation using Vision-Language Models
+# MonReader: Image-to-Text Generation using Vision-Language Models
 
 ## Project Overview
 
@@ -17,7 +17,7 @@ Unlike a traditional machine learning notebook project, this repository focuses 
 
 ---
 
-# 🎯 Project Objectives
+# Project Objectives
 
 The main objectives of this project are:
 
@@ -35,7 +35,7 @@ The main objectives of this project are:
 
 ---
 
-# ✨ Key Features
+# Key Features
 
 ## Image Upload Interface
 
@@ -95,10 +95,10 @@ Deployment flow:
 Application Code
       │
       ▼
-Dockerfile
+  Dockerfile
       │
       ▼
-Docker Image
+ Docker Image
       │
       ▼
 Docker Container
@@ -113,12 +113,12 @@ Vision-Language Model
 
 ---
 
-# 🏗️ Overall Project Architecture
+# Overall Project Architecture
 
 The complete system architecture is shown below:
 
 ```
-User
+     User
       │
       ▼
 Web Application
@@ -157,10 +157,112 @@ AWS EC2 Instance
 Public Web Application
 ```
 
+---
+
+# Project Development Workflow
+
+The project followed the following development lifecycle:
+```
+Step 1: Model Development
+Step 2: Model Evaluation
+Step 3: Flask Application Development
+Step 4: Local Application Testing
+Step 5: Docker Containerization
+Step 6: Local Docker Testing
+Step 7: AWS EC2 Deployment
+Step 8: Public Application Access
+```
 
 ---
 
-# 🔄 Project Development Workflow
+# 🛠️ Technology Stack
 
-The project followed the following development lifecycle:
+| Category | Technology |
+|---|---|
+| Programming Language | Python |
+| Web Framework | Flask |
+| Deep Learning Framework | PyTorch |
+| Computer Vision | CNN, ResNet, EfficientNet, MobileNet |
+| Vision-Language Model | BLIP |
+| Frontend | HTML, CSS |
+| Containerization | Docker |
+| Cloud Platform | AWS EC2 |
+| Operating System | Ubuntu Linux |
+| Version Control | Git & GitHub |
 
+---
+
+# Repository Structure
+
+The repository is organized as follows:
+```
+MonReader/
+
+│
+├── app.py
+│ └── Flask application entry point
+│
+├── model/
+│ └── Machine learning model files
+│
+├── templates/
+│ └── HTML templates for web interface
+│
+├── static/
+│ └── CSS, JavaScript, and frontend assets
+│
+├── uploads/
+│ └── Temporary uploaded images
+│
+├── requirements.txt
+│ └── Python dependencies
+│
+├── Dockerfile
+│ └── Docker image configuration
+│
+├── .dockerignore
+│ └── Files excluded from Docker build
+│
+├── notebooks/
+│ └── Model development and experimentation
+│
+├── assets/
+│ └── Documentation images and screenshots
+│
+└── README.md
+└── Project documentation
+```
+
+---
+
+# Project Highlights
+
+This project demonstrates knowledge across multiple areas:
+
+## Machine Learning
+
+- Computer vision model development
+- Transfer learning
+- Vision-language inference
+- Model integration
+
+## Software Development
+
+- Flask API development
+- Web application structure
+- Frontend integration
+
+## DevOps / MLOps
+
+- Docker image creation
+- Container management
+- Cloud deployment
+- Infrastructure troubleshooting
+
+## Cloud Computing
+
+- AWS EC2 provisioning
+- Security Group configuration
+- Public application hosting
+
+---
