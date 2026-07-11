@@ -54,20 +54,113 @@ The inference pipeline:
 Image Upload
       │
       ▼
-OCR Extraction
+Image Preprocessing
       │
       ▼
-Text Cleaning
+Vision Encoder
       │
       ▼
-Text-to-Speech
+Language Decoder
       │
       ▼
-Audio Generation
+Generated Description
+```
+
+---
+
+## Flask Web Application
+
+A lightweight Flask application provides:
+
+- User interface
+- Image upload functionality
+- Model inference endpoint
+- Generated caption display
+
+---
+
+## Docker Deployment
+
+The application is containerized to ensure consistent execution across different environments.
+
+Docker provides:
+
+- Dependency isolation
+- Reproducible environments
+- Easy deployment
+- Simplified application management
+
+Deployment flow:
+```
+Application Code
       │
       ▼
-  Playback
+Dockerfile
+      │
+      ▼
+Docker Image
+      │
+      ▼
+Docker Container
+      │
+      ▼
+Running Flask Application
+      │
+      ▼
+Vision-Language Model
 ```
 
 
+---
+
+# 🏗️ Overall Project Architecture
+
+The complete system architecture is shown below:
+
+```
+User
+      │
+      ▼
+Web Application
+      │
+      ▼
+Image Processing Pipeline
+      │
+      ▼
+Vision-Language Model (BLIP)
+      │
+      ▼
+Generated Text Output
+```
+
+
+Deployment architecture:
+```
+Development Machine
+      │
+      ▼
+Flask Application
+      │
+      ▼
+Docker Build
+      │
+      ▼
+Docker Image
+      │
+      ▼
+Docker Container
+      │
+      ▼
+AWS EC2 Instance
+      │
+      ▼
+Public Web Application
+```
+
+
+---
+
+# 🔄 Project Development Workflow
+
+The project followed the following development lifecycle:
 
