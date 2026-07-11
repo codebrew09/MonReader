@@ -52,18 +52,22 @@ The application uses a pre-trained Vision-Language Model to understand image con
 The inference pipeline:
 ```
 Image Upload
-|
-↓
-Image Preprocessing
-|
-↓
-Vision Encoder
-|
-↓
-Language Decoder
-|
-↓
-Generated Description
+      │
+      ▼
+OCR Extraction
+      │
+      ▼
+Text Cleaning
+      │
+      ▼
+Text-to-Speech
+      │
+      ▼
+Audio Generation
+      │
+      ▼
+  Playback
 ```
+
 
 
