@@ -50,7 +50,7 @@ The application processes the uploaded image and generates a natural language de
 The application uses a pre-trained Vision-Language Model to understand image content and generate human-like descriptions.
 
 The inference pipeline:
-
+```
 Image Upload
 |
 ↓
@@ -64,3 +64,6 @@ Language Decoder
 |
 ↓
 Generated Description
+```
+
+
