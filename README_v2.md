@@ -162,7 +162,7 @@ Public Web Application
 # Project Development Workflow
 
 The project followed the following development lifecycle:
-```
+
 Step 1: Model Development
 Step 2: Model Evaluation
 Step 3: Flask Application Development
@@ -171,7 +171,7 @@ Step 5: Docker Containerization
 Step 6: Local Docker Testing
 Step 7: AWS EC2 Deployment
 Step 8: Public Application Access
-```
+
 
 ---
 
