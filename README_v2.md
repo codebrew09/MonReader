@@ -107,4 +107,205 @@ Deployment architecture:
 
 The project was developed following this workflow:
 
+```
+Step 1: Model Development (ResNet, EfficientNet, MobileNet, and Custom CNN)
+             |
+             ↓
+Step 2: Vision-Language Model Integration
+             |
+             ↓
+Step 3: Flask Web Application Development
+             |
+             ↓
+Step 4: Local Application Testing
+             |
+             ↓
+Step 5: Docker Containerization
+             |
+             ↓
+Step 6: Local Docker Deplyoment
+             |
+             ↓
+Step 7: AWS EC2 Deployment
+             |
+             ↓
+Step 8: Public Application Access
+```
+
+
+---
+
+# 🛠️ Technology Stack
+
+
+| Category | Technology |
+|---|---|
+| Programming Language | Python |
+| Web Framework | Flask |
+| Deep Learning Framework | PyTorch |
+| Computer Vision | CNN, ResNet, EfficientNet, MobileNet |
+| Vision-Language Model | BLIP |
+| Containerization | Docker |
+| Cloud Platform | AWS EC2 |
+| Operating System | Ubuntu Linux |
+| Version Control | GitHub |
+
+
+---
+
+# 📂 Repository Structure
+```
+MonReader/
+
+│
+├── app.py
+│
+├── models/
+│
+├── templates/
+│
+├── static/
+│
+├── notebooks/
+│
+├── requirements.txt
+│
+├── Dockerfile
+│
+├── docs/
+│
+│ ├── 01_Model_Development.md
+│ │
+│ ├── 02_Flask_Application.md
+│ │
+│ ├── 03_Docker_Implementation.md
+│ │
+│ ├── 04_AWS_Deployment.md
+│ │
+│ ├── 05_Troubleshooting.md
+│ │
+│ └── 06_Lessons_Learned.md
+│
+├── assets/
+│
+└── README.md
+```
+
+
+---
+
+# 📚 Detailed Documentation
+
+
+For detailed implementation steps, please refer to:
+
+
+## Model Development
+
+Explanation of:
+
+- CNN baseline model
+- ResNet
+- EfficientNet
+- MobileNet
+- Vision-Language Model integration
+
+
+➡️ See:
+
+`docs/01_Model_Development.md`
+
+
+
+---
+
+## Flask Application
+
+Details about:
+
+- Flask structure
+- Application workflow
+- Image upload process
+- Local execution
+
+
+➡️ See:
+
+`docs/02_Flask_Application.md`
+
+
+
+---
+
+## Docker Implementation
+
+Details about:
+
+- Docker concepts
+- Dockerfile
+- Building images
+- Running containers
+- Local Docker deployment
+
+
+➡️ See:
+
+`docs/03_Docker_Implementation.md`
+
+
+
+---
+
+## AWS Deployment
+
+Details about:
+
+- EC2 setup
+- Docker deployment
+- Security Groups
+- Public access configuration
+
+
+➡️ See:
+
+`docs/04_AWS_Deployment.md`
+
+
+
+---
+
+## Troubleshooting
+
+Common problems encountered during development and deployment.
+
+
+➡️ See:
+
+`docs/05_Troubleshooting.md`
+
+
+
+---
+
+# 🚀 Future Improvements
+
+Potential improvements include:
+
+- GPU-based AWS deployment
+- HTTPS configuration
+- CI/CD pipeline
+- Model optimization
+- Container orchestration using Kubernetes
+- Automated testing
+
+
+---
+
+# 👨‍💻 Author
+
+Codebrew09
+
+GitHub:
+https://github.com/codebrew09
+
 
