@@ -2,13 +2,15 @@
 
 ## Overview
 
-Docker was used to containerize the Flask-based Image-to-Audio application. The purpose of using Docker is to package the application, dependencies, and required environment into a portable container that can run consistently on different systems, including AWS EC2.
+Docker was used to containerize the Flask-based Image-to-Audio application. The purpose of Docker is to package the application code, Python environment, dependencies, and configurations into a portable container.
 
-The Docker workflow consists of:
+By using Docker, the application can run consistently across different environments, including local machines and AWS EC2.
+
+The Docker implementation process consists of:
 
 1. Preparing the application files
 2. Creating a Dockerfile
-3. Building a Docker image
+3. Creating a Docker image
 4. Running the Docker container
 5. Testing and managing the container
 
@@ -17,7 +19,7 @@ The Docker workflow consists of:
 
 # 1. Project Structure Preparation
 
-The project directory was organized as follows:
+The project directory contains the required application files:
 
 ```
 Project/
@@ -25,10 +27,7 @@ Project/
 ├── app.py
 ├── requirements.txt
 ├── Dockerfile
-├── .dockerignore
-├── templates/
-├── static/
-└── models/
+└── .dockerignore
 ```
 
 ## File Description
@@ -36,19 +35,16 @@ Project/
 | File | Description |
 |------|-------------|
 | app.py | Main Flask application |
-| requirements.txt | Python package dependencies |
-| Dockerfile | Instructions to build the Docker image |
-| .dockerignore | Files excluded during image creation |
-| templates/ | HTML templates |
-| static/ | CSS, JavaScript, and images |
-| models/ | Machine learning model files |
+| requirements.txt | Python package dependencies required by the application |
+| Dockerfile | Instructions used to create the Docker image |
+| .dockerignore | Files excluded during Docker image creation |
 
 
 ---
 
 # 2. Create requirements.txt
 
-The `requirements.txt` file contains all Python dependencies required by the application.
+The `requirements.txt` file contains all Python libraries required by the Flask application.
 
 Example:
 
@@ -61,14 +57,14 @@ opencv-python
 numpy
 ```
 
-Docker uses this file to automatically install all required libraries during image creation.
+During the Docker build process, these dependencies are automatically installed inside the container environment.
 
 
 ---
 
 # 3. Create Dockerfile
 
-The Dockerfile defines how the application environment is created.
+The Dockerfile defines the environment and instructions required to run the application.
 
 Example:
 
@@ -91,67 +87,67 @@ CMD ["python", "app.py"]
 
 ## Dockerfile Explanation
 
-### Base Image
+### 1. Base Image
 
 ```dockerfile
 FROM python:3.10-slim
 ```
 
-Uses a lightweight Python 3.10 image as the base environment.
+Uses a lightweight Python 3.10 environment as the base image.
 
 
-### Working Directory
+### 2. Working Directory
 
 ```dockerfile
 WORKDIR /app
 ```
 
-Creates and sets `/app` as the working directory inside the container.
+Creates `/app` as the working directory inside the Docker container.
 
 
-### Copy Dependencies
+### 3. Copy Dependency File
 
 ```dockerfile
 COPY requirements.txt .
 ```
 
-Copies the dependency list into the container.
+Copies the Python dependency list into the container.
 
 
-### Install Dependencies
+### 4. Install Dependencies
 
 ```dockerfile
 RUN pip install --no-cache-dir -r requirements.txt
 ```
 
-Installs all required Python packages.
+Installs all required Python packages inside the container.
 
 
-### Copy Application Files
+### 5. Copy Application Files
 
 ```dockerfile
 COPY . .
 ```
 
-Copies the entire project into the container.
+Copies the application source code into the Docker container.
 
 
-### Expose Application Port
+### 6. Expose Application Port
 
 ```dockerfile
 EXPOSE 5000
 ```
 
-Defines port 5000 for Flask application access.
+Defines port 5000, which is the default Flask application port used by the application.
 
 
-### Start Application
+### 7. Start Application
 
 ```dockerfile
 CMD ["python", "app.py"]
 ```
 
-Runs the Flask application when the container starts.
+Automatically starts the Flask application when the container runs.
 
 
 ---
@@ -172,8 +168,8 @@ __pycache__
 Benefits:
 
 - Reduces Docker image size
-- Improves build speed
-- Prevents unnecessary files from being included
+- Improves build performance
+- Prevents unnecessary files from entering the container
 
 
 ---
@@ -183,7 +179,7 @@ Benefits:
 Navigate to the project directory:
 
 ```bash
-cd Project
+cd <project-directory>
 ```
 
 Build the Docker image:
@@ -192,21 +188,24 @@ Build the Docker image:
 docker build -t image-to-audio .
 ```
 
+
 Explanation:
 
-- `docker build` creates a Docker image
-- `-t image-to-audio` assigns the image name
-- `.` uses the current directory as the build location
+| Command | Purpose |
+|---------|---------|
+| docker build | Creates a Docker image |
+| -t image-to-audio | Assigns a name to the image |
+| . | Uses the current directory as the build context |
 
 
-Verify the image:
+Verify the Docker image:
 
 ```bash
 docker images
 ```
 
 
-Expected output:
+Example output:
 
 ```
 REPOSITORY        TAG       IMAGE ID
@@ -218,7 +217,7 @@ image-to-audio    latest    xxxxxxxxx
 
 # 6. Run Docker Container
 
-Start the container:
+Start the Docker container:
 
 ```bash
 docker run -d -p 5000:5000 --name image_to_audio image-to-audio
@@ -230,20 +229,21 @@ Explanation:
 | Parameter | Purpose |
 |-----------|---------|
 | -d | Runs container in background mode |
-| -p 5000:5000 | Maps host port to container port |
-| --name | Assigns container name |
-| image-to-audio | Docker image to run |
+| -p 5000:5000 | Maps host port 5000 to container port 5000 |
+| --name image_to_audio | Assigns container name |
+| image-to-audio | Specifies the Docker image to run |
 
 
 ---
 
-# 7. Verify Container Status
+# 7. Verify Running Container
 
-Check running containers:
+Check active containers:
 
 ```bash
 docker ps
 ```
+
 
 Example output:
 
@@ -253,7 +253,7 @@ xxxxxxxx       image-to-audio    0.0.0.0:5000->5000/tcp
 ```
 
 
-To view all containers:
+To display all containers:
 
 ```bash
 docker ps -a
@@ -267,38 +267,42 @@ docker ps -a
 The Flask application can be accessed through:
 
 ```
-http://<server-ip>:5000
+http://<public-ip>:5000
 ```
 
-For local testing:
+Example for AWS EC2:
 
 ```
-http://localhost:5000
+http://<EC2-public-IP>:5000
 ```
+
+
+The EC2 Security Group must allow inbound TCP traffic on port 5000.
 
 
 ---
 
-# 9. Monitor Application Logs
+# 9. Check Application Logs
 
-To check application output and errors:
+View container logs:
 
 ```bash
 docker logs image_to_audio
 ```
 
-Example:
 
-```
-Running on http://0.0.0.0:5000
-```
+Logs are used to troubleshoot issues such as:
 
-Logs are useful for troubleshooting application startup failures.
+- Application startup failure
+- Missing dependencies
+- Runtime errors
+- Model loading errors
 
 
 ---
 
 # 10. Docker Container Management Commands
+
 
 ## Stop Container
 
@@ -307,7 +311,7 @@ docker stop image_to_audio
 ```
 
 
-## Start Existing Container
+## Start Container
 
 ```bash
 docker start image_to_audio
@@ -352,15 +356,15 @@ Build Docker Image
           |
           |
           v
-Run Docker Container
+Create Docker Container
           |
           |
           v
-Flask Application Running
+Run Flask Application
           |
           |
           v
-Access Through Browser
+Access Application Through Browser
 ```
 
 
@@ -368,16 +372,16 @@ Access Through Browser
 
 # 12. Summary
 
-Docker provides a consistent deployment environment by packaging the Flask application, Python runtime, libraries, and configurations into a single container.
+The Docker implementation successfully converted the Flask Image-to-Audio application into a portable container.
 
-The final deployment process:
+The complete workflow:
 
 1. Prepare application files
-2. Define dependencies
+2. Define Python dependencies
 3. Create Dockerfile
 4. Build Docker image
 5. Run Docker container
-6. Verify application availability
-7. Monitor logs and manage containers
+6. Verify application operation
+7. Deploy and access through browser
 
-Docker allows the Image-to-Audio application to be easily deployed locally or on cloud platforms such as AWS EC2.
+Docker simplifies deployment by ensuring the same application environment can be reproduced locally and on AWS EC2.
